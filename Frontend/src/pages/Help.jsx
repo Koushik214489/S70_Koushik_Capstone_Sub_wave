@@ -29,7 +29,7 @@ const FAQItem = ({ question, answer }) => {
         className="w-full py-5 flex justify-between items-center text-left focus:outline-none group"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="text-base font-bold text-gray-200 group-hover:text-cyan-400 transition-colors">{question}</span>
+        <span className="text-base font-bold text-gray-200 group-hover:text-primary transition-colors">{question}</span>
         <motion.span
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
@@ -118,8 +118,8 @@ const Help = () => {
         transition={{ duration: 0.5 }}
         className="flex items-center space-x-4 mb-8"
       >
-        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 border border-white/10 flex items-center justify-center shadow-lg relative overflow-hidden">
-          <div className="absolute inset-0 bg-cyan-500/20 blur-xl"></div>
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-primary border border-white/10 flex items-center justify-center shadow-lg relative overflow-hidden">
+          <div className="absolute inset-0 bg-primary/20 blur-xl"></div>
           <QuestionMarkCircleIcon className="w-8 h-8 text-white relative z-10" />
         </div>
         <div>
@@ -135,21 +135,21 @@ const Help = () => {
           title="Email Support"
           description="Get help via email within 24 hours. Ideal for account or billing issues."
           delay={0.1}
-          gradient="from-blue-500/5 to-cyan-500/5"
+          gradient="from-blue-500/5 to-primary/5"
         />
         <FeatureCard
           icon={ChatBubbleOvalLeftIcon}
           title="Live Chat"
           description="Chat with our support team in real-time for immediate assistance."
           delay={0.2}
-          gradient="from-purple-500/5 to-pink-500/5"
+          gradient="from-secondary/5 to-accent/5"
         />
         <FeatureCard
           icon={DocumentIcon}
           title="Documentation"
           description="Browse our detailed guides and API documentation for developers."
           delay={0.3}
-          gradient="from-pink-500/5 to-orange-500/5"
+          gradient="from-accent/5 to-orange-500/5"
         />
       </div>
 
@@ -161,7 +161,7 @@ const Help = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="lg:col-span-8 bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-8 relative overflow-hidden shadow-2xl h-fit"
         >
-          <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
           <h2 className="text-2xl font-bold text-white mb-6 relative z-10">Frequently Asked Questions</h2>
 
           <div className="relative z-10">
@@ -178,7 +178,7 @@ const Help = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="lg:col-span-4 space-y-6"
         >
-          <div className="bg-gradient-to-br from-purple-900/40 to-cyan-900/40 border border-purple-500/30 rounded-3xl p-8 text-center relative overflow-hidden shadow-2xl">
+          <div className="bg-gradient-to-br from-purple-900/40 to-cyan-900/40 border border-secondary/30 rounded-3xl p-8 text-center relative overflow-hidden shadow-2xl">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
             <div className="w-20 h-20 mx-auto bg-black/40 border border-white/20 rounded-2xl flex items-center justify-center mb-6 shadow-inner relative z-10">
               <span className="text-4xl">👋</span>
@@ -196,12 +196,12 @@ const Help = () => {
             <h3 className="text-white font-bold mb-4">Quick Resources</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="flex items-center text-sm text-gray-400 hover:text-cyan-400 transition-colors group">
+                <a href="#" className="flex items-center text-sm text-gray-400 hover:text-primary transition-colors group">
                   <BookOpenIcon className="w-4 h-4 mr-3 group-hover:scale-110 transition-transform" /> Getting Started Guide
                 </a>
               </li>
               <li>
-                <a href="#" className="flex items-center text-sm text-gray-400 hover:text-purple-400 transition-colors group">
+                <a href="#" className="flex items-center text-sm text-gray-400 hover:text-secondary transition-colors group">
                   <QuestionMarkCircleIcon className="w-4 h-4 mr-3 group-hover:scale-110 transition-transform" /> Keyboard Shortcuts
                 </a>
               </li>

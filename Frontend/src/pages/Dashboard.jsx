@@ -61,7 +61,7 @@ const Dashboard = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full min-h-[50vh]">
-        <div className="w-12 h-12 border-4 border-purple-500/20 border-t-purple-500 rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-secondary/20 border-t-purple-500 rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -76,8 +76,8 @@ const Dashboard = () => {
         className="flex flex-col md:flex-row md:items-end justify-between"
       >
         <div className="flex items-center space-x-4 mb-4 md:mb-0">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 border border-white/10 flex items-center justify-center shadow-lg relative overflow-hidden">
-            <div className="absolute inset-0 bg-cyan-500/20 blur-xl"></div>
+          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-blue-600 border border-white/10 flex items-center justify-center shadow-lg relative overflow-hidden">
+            <div className="absolute inset-0 bg-primary/20 blur-xl"></div>
             <ChartBarIcon className="w-8 h-8 text-white relative z-10" />
           </div>
           <div>
@@ -93,13 +93,13 @@ const Dashboard = () => {
             {isSyncingEmail ? (
               <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin mr-2"></div>
             ) : (
-              <EnvelopeIcon className="w-5 h-5 mr-2 text-cyan-400" />
+              <EnvelopeIcon className="w-5 h-5 mr-2 text-primary" />
             )}
             Sync Web/Email
           </button>
           <Link
             to="/add-subscription"
-            className="px-5 py-2.5 flex items-center bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] font-medium transition-all hover:scale-105 shadow-lg"
+            className="px-5 py-2.5 flex items-center bg-gradient-to-r from-primary to-secondary text-white rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] font-medium transition-all hover:scale-105 shadow-lg"
           >
             + Add New
           </Link>
@@ -120,22 +120,22 @@ const Dashboard = () => {
         className="grid grid-cols-1 md:grid-cols-3 gap-6"
       >
         <div className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all shadow-xl group overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="flex items-center justify-between mb-4 relative z-10">
             <span className="text-sm font-medium text-gray-400">Total Subscriptions</span>
             <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/5 shadow-inner">
-              <ChartBarIcon className="w-5 h-5 text-cyan-400" />
+              <ChartBarIcon className="w-5 h-5 text-primary" />
             </div>
           </div>
           <p className="text-3xl font-extrabold text-white mb-1 relative z-10 tracking-tight">{subscriptionsData.length}</p>
         </div>
 
         <div className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all shadow-xl group overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="flex items-center justify-between mb-4 relative z-10">
             <span className="text-sm font-medium text-gray-400">Monthly Spending</span>
             <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/5 shadow-inner">
-              <ArrowTrendingUpIcon className="w-5 h-5 text-purple-400" />
+              <ArrowTrendingUpIcon className="w-5 h-5 text-secondary" />
             </div>
           </div>
           <p className="text-3xl font-extrabold text-white mb-1 relative z-10 tracking-tight">
@@ -144,11 +144,11 @@ const Dashboard = () => {
         </div>
 
         <div className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all shadow-xl group overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="flex items-center justify-between mb-4 relative z-10">
             <span className="text-sm font-medium text-gray-400">Next Renewal</span>
             <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/5 shadow-inner">
-              <CalendarIcon className="w-5 h-5 text-pink-400" />
+              <CalendarIcon className="w-5 h-5 text-accent" />
             </div>
           </div>
           <p className="text-xl font-extrabold text-white mb-1 relative z-10 tracking-tight truncate">
@@ -168,12 +168,12 @@ const Dashboard = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="p-8 rounded-3xl bg-black/40 border border-white/10 backdrop-blur-md shadow-2xl relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px] -z-10" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -z-10" />
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-bold text-white flex items-center">
-              <CreditCardIcon className="w-6 h-6 mr-2 text-cyan-400" /> Active Subscriptions
+              <CreditCardIcon className="w-6 h-6 mr-2 text-primary" /> Active Subscriptions
             </h2>
-            <Link to="/subscriptions" className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors">View All</Link>
+            <Link to="/subscriptions" className="text-sm text-primary hover:text-cyan-300 transition-colors">View All</Link>
           </div>
 
           <div className="space-y-4">
@@ -213,10 +213,10 @@ const Dashboard = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="p-8 rounded-3xl bg-black/40 border border-white/10 backdrop-blur-md shadow-2xl relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-[80px] -z-10" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-[80px] -z-10" />
           <div className="mb-6">
             <h2 className="text-xl font-bold text-white flex items-center">
-              <CalendarIcon className="w-6 h-6 mr-2 text-purple-400" /> Upcoming Renewals (7 Days)
+              <CalendarIcon className="w-6 h-6 mr-2 text-secondary" /> Upcoming Renewals (7 Days)
             </h2>
           </div>
 

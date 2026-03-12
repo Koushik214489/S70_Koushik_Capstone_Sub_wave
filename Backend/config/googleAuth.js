@@ -20,7 +20,9 @@ passport.use(
       callbackURL: process.env.NODE_ENV === 'production'
         ? 'https://s70-koushik-capstone-sub-wave.onrender.com/api/auth/google/callback'
         : '/api/auth/google/callback',
-      scope: ['profile', 'email']
+      scope: ['profile', 'email', 'https://www.googleapis.com/auth/gmail.readonly'],
+      accessType: 'offline', // Request a refresh token
+      prompt: 'consent' // Always ask for consent to ensure refresh token is provided
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
@@ -28,7 +30,12 @@ passport.use(
         let user = await User.findOne({ email: profile.emails[0].value });
 
         if (user) {
-          // If user exists, return the user
+          // Update tokens if they exist
+          user.googleAccessToken = accessToken;
+          if (refreshToken) {
+            user.googleRefreshToken = refreshToken;
+          }
+          await user.save();
           return done(null, user);
         }
 
@@ -37,7 +44,9 @@ passport.use(
           name: profile.displayName,
           email: profile.emails[0].value,
           password: 'google-oauth-' + Math.random().toString(36).substring(7),
-          isEmailVerified: true // Since Google has verified the email
+          isEmailVerified: true, // Since Google has verified the email
+          googleAccessToken: accessToken,
+          googleRefreshToken: refreshToken
         });
 
         return done(null, user);

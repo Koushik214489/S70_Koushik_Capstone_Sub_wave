@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   sidebarOpen: true,
-  theme: localStorage.getItem('theme') || 'light',
+  theme: localStorage.getItem('theme') || 'theme-plum',
   notifications: [],
   loading: {
     global: false,
@@ -25,6 +25,10 @@ const uiSlice = createSlice({
     },
     toggleTheme: (state) => {
       state.theme = state.theme === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', state.theme);
+    },
+    setTheme: (state, action) => {
+      state.theme = action.payload;
       localStorage.setItem('theme', state.theme);
     },
     addNotification: (state, action) => {
@@ -60,6 +64,7 @@ const uiSlice = createSlice({
 export const {
   toggleSidebar,
   toggleTheme,
+  setTheme,
   addNotification,
   removeNotification,
   setLoading,

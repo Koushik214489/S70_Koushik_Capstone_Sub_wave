@@ -27,6 +27,8 @@ const userSchema = new mongoose.Schema({
   verificationTokenExpires: Date,
   resetPasswordToken: String,
   resetPasswordExpires: Date,
+  googleAccessToken: String,
+  googleRefreshToken: String,
   createdAt: {
     type: Date,
     default: Date.now

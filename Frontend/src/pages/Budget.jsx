@@ -22,34 +22,34 @@ const BudgetOverview = ({ data }) => (
     transition={{ duration: 0.5, delay: 0.1 }}
     className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-6 sm:p-8 mb-8 shadow-2xl relative overflow-hidden"
   >
-    <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px] -z-10" />
+    <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -z-10" />
     <h2 className="text-xl font-bold text-white mb-6">Budget Overview</h2>
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div className="p-6 bg-black/40 border border-white/10 rounded-2xl group hover:bg-white/5 transition-all">
         <div className="flex items-center justify-between mb-4">
-          <div className="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center border border-cyan-500/30">
-            <BanknotesIcon className="h-5 w-5 text-cyan-400" />
+          <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30">
+            <BanknotesIcon className="h-5 w-5 text-primary" />
           </div>
           <span className="text-sm font-medium text-gray-400">Total Budget</span>
         </div>
         <p className="text-3xl font-extrabold text-white">₹{data.totalBudget.toFixed(2)}</p>
-        <p className="text-sm text-cyan-400 mt-2 font-medium">
+        <p className="text-sm text-primary mt-2 font-medium">
           Monthly defined limit
         </p>
       </div>
 
       <div className="p-6 bg-black/40 border border-white/10 rounded-2xl group hover:bg-white/5 transition-all">
         <div className="flex items-center justify-between mb-4">
-          <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center border border-purple-500/30">
-            <ArrowTrendingUpIcon className="h-5 w-5 text-purple-400" />
+          <div className="w-10 h-10 rounded-xl bg-secondary/20 flex items-center justify-center border border-secondary/30">
+            <ArrowTrendingUpIcon className="h-5 w-5 text-secondary" />
           </div>
           <span className="text-sm font-medium text-gray-400">Expenses</span>
         </div>
         <p className="text-3xl font-extrabold text-white">₹{data.expenses.toFixed(2)}</p>
         <div className="w-full bg-white/10 rounded-full h-1.5 mt-4 overflow-hidden">
           <div
-            className={`h-1.5 rounded-full ${data.expenses > data.totalBudget && data.totalBudget > 0 ? 'bg-red-500' : 'bg-gradient-to-r from-purple-500 to-pink-500'}`}
+            className={`h-1.5 rounded-full ${data.expenses > data.totalBudget && data.totalBudget > 0 ? 'bg-red-500' : 'bg-gradient-to-r from-secondary to-accent'}`}
             style={{ width: `${data.totalBudget > 0 ? Math.min(100, (data.expenses / data.totalBudget) * 100) : 0}%` }}
           />
         </div>
@@ -60,15 +60,15 @@ const BudgetOverview = ({ data }) => (
 
       <div className="p-6 bg-black/40 border border-white/10 rounded-2xl group hover:bg-white/5 transition-all">
         <div className="flex items-center justify-between mb-4">
-          <div className="w-10 h-10 rounded-xl bg-pink-500/20 flex items-center justify-center border border-pink-500/30">
-            <ClockIcon className="h-5 w-5 text-pink-400" />
+          <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center border border-pink-500/30">
+            <ClockIcon className="h-5 w-5 text-accent" />
           </div>
           <span className="text-sm font-medium text-gray-400">Remaining</span>
         </div>
         <p className={`text-3xl font-extrabold ${data.totalBudget - data.expenses < 0 ? 'text-red-400' : 'text-white'}`}>
           ₹{Math.max(0, data.totalBudget - data.expenses).toFixed(2)}
         </p>
-        <p className="text-sm text-pink-400 mt-2 font-medium">Available to spend</p>
+        <p className="text-sm text-accent mt-2 font-medium">Available to spend</p>
       </div>
     </div>
   </motion.div>
@@ -88,7 +88,7 @@ const SpendingByCategory = ({ categories }) => {
         </div>
         <h2 className="text-xl font-bold text-white mb-2">No Categories Yet</h2>
         <p className="text-sm text-gray-400 max-w-xs">Add subscriptions with categories to see your spending breakdown here.</p>
-        <Link to="/add-subscription" className="mt-4 text-cyan-400 hover:text-cyan-300 transition-colors text-sm font-bold">
+        <Link to="/add-subscription" className="mt-4 text-primary hover:text-cyan-300 transition-colors text-sm font-bold">
           + Add Subscription
         </Link>
       </motion.div>
@@ -154,7 +154,7 @@ const SpendingByCategory = ({ categories }) => {
       transition={{ duration: 0.5, delay: 0.2 }}
       className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-8 relative overflow-hidden h-full flex flex-col"
     >
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-[80px] -z-10" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-[80px] -z-10" />
       <h2 className="text-xl font-bold text-white mb-6">Spending by Category</h2>
       <div className="flex-1 min-h-[300px] flex items-center justify-center relative">
         <Doughnut data={data} options={options} />
@@ -177,7 +177,7 @@ const RecentTransactions = ({ transactions }) => (
     transition={{ duration: 0.5, delay: 0.3 }}
     className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-8 relative overflow-hidden h-full"
   >
-    <div className="absolute top-0 left-0 w-64 h-64 bg-pink-500/10 rounded-full blur-[80px] -z-10" />
+    <div className="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-[80px] -z-10" />
     <h2 className="text-xl font-bold text-white mb-6">Active Subscriptions</h2>
     <div className="space-y-4">
       {transactions.map((transaction) => (
@@ -195,7 +195,7 @@ const RecentTransactions = ({ transactions }) => (
               )}
             </div>
             <div className="ml-4">
-              <div className="text-sm font-bold text-gray-200 group-hover:text-cyan-400 transition-colors">
+              <div className="text-sm font-bold text-gray-200 group-hover:text-primary transition-colors">
                 {transaction.service}
               </div>
               <div className="text-xs text-gray-500 mt-0.5">
@@ -210,7 +210,7 @@ const RecentTransactions = ({ transactions }) => (
             <div className="mt-1">
               <span
                 className={`px-2.5 py-0.5 inline-flex text-[10px] leading-4 font-bold rounded-full ${transaction.status === 'Active'
-                  ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30'
+                  ? 'bg-primary/20 text-primary border border-primary/30'
                   : 'bg-orange-500/20 text-orange-400 border border-orange-500/30'
                   }`}
               >
@@ -328,7 +328,7 @@ const Budget = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full min-h-[50vh]">
-        <div className="w-12 h-12 border-4 border-cyan-500/20 border-t-cyan-500 rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-primary/20 border-t-cyan-500 rounded-full animate-spin"></div>
       </div>
     );
   }

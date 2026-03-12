@@ -7,17 +7,19 @@ import {
   CreditCardIcon,
   PaintBrushIcon
 } from '@heroicons/react/24/outline';
+import { useDispatch, useSelector } from 'react-redux';
+import { setTheme } from '../store/slices/uiSlice';
 
 const TabButton = ({ active, icon: Icon, label, onClick }) => (
   <button
     type="button"
     onClick={onClick}
     className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-300 ${active
-      ? 'bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-white border border-white/10 shadow-[inset_0px_0px_20px_rgba(255,255,255,0.05)]'
+      ? 'bg-gradient-to-r from-primary/20 to-secondary/20 text-white border border-white/10 shadow-[inset_0px_0px_20px_rgba(255,255,255,0.05)]'
       : 'text-gray-400 hover:text-white hover:bg-white/5 border border-transparent'
       }`}
   >
-    <Icon className={`w-5 h-5 ${active ? 'text-cyan-400' : 'text-gray-500'}`} />
+    <Icon className={`w-5 h-5 ${active ? 'text-primary' : 'text-gray-500'}`} />
     <span className="font-medium">{label}</span>
   </button>
 );
@@ -26,13 +28,13 @@ const InputField = ({ label, type = "text", value, onChange, placeholder }) => (
   <div>
     <label className="block text-sm font-medium text-gray-300 mb-2">{label}</label>
     <div className="relative group">
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
       <input
         type={type}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="relative w-full px-4 py-3 bg-[#0a0a16] border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all"
+        className="relative w-full px-4 py-3 bg-[#0a0a16] border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-transparent transition-all"
       />
     </div>
   </div>
@@ -42,11 +44,11 @@ const SelectField = ({ label, value, onChange, options }) => (
   <div>
     <label className="block text-sm font-medium text-gray-300 mb-2">{label}</label>
     <div className="relative group">
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-secondary to-accent rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
       <select
         value={value}
         onChange={onChange}
-        className="relative w-full px-4 py-3 bg-[#0a0a16] border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all appearance-none"
+        className="relative w-full px-4 py-3 bg-[#0a0a16] border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-transparent transition-all appearance-none"
       >
         {options.map((opt) => (
           <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -60,6 +62,9 @@ const SelectField = ({ label, value, onChange, options }) => (
 );
 
 const Settings = () => {
+  const dispatch = useDispatch();
+  const currentTheme = useSelector(state => state.ui.theme);
+
   const [activeTab, setActiveTab] = useState('profile');
   const [user, setUser] = useState({
     name: 'Koushik Reddy K M',
@@ -67,11 +72,15 @@ const Settings = () => {
     phone: '+1 (555) 123-4567',
     currency: 'INR',
     language: 'English',
-    theme: 'dark',
+    theme: currentTheme,
   });
 
   const handleInputChange = (field) => (event) => {
-    setUser({ ...user, [field]: event.target.value });
+    const value = event.target.value;
+    setUser({ ...user, [field]: value });
+    if (field === 'theme') {
+      dispatch(setTheme(value));
+    }
   };
 
   const handleSubmit = (event) => {
@@ -88,7 +97,7 @@ const Settings = () => {
         className="flex items-center space-x-4 mb-4"
       >
         <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gray-700 to-gray-900 border border-white/10 flex items-center justify-center shadow-lg relative overflow-hidden">
-          <div className="absolute inset-0 bg-cyan-500/20 blur-xl"></div>
+          <div className="absolute inset-0 bg-primary/20 blur-xl"></div>
           <Cog6ToothIcon className="w-8 h-8 text-white relative z-10" />
         </div>
         <div>
@@ -117,7 +126,7 @@ const Settings = () => {
           className="md:col-span-9"
         >
           <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl shadow-2xl p-8 relative overflow-hidden min-h-[500px]">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
 
             <AnimatePresence mode="wait">
               {activeTab === 'profile' && (
@@ -133,7 +142,7 @@ const Settings = () => {
                   </div>
 
                   <div className="flex items-center space-x-6 border-b border-white/10 pb-8">
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 p-1">
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-secondary p-1">
                       <div className="w-full h-full bg-[#050511] rounded-full flex items-center justify-center overflow-hidden">
                         <UserCircleIcon className="w-16 h-16 text-gray-500" />
                       </div>
@@ -155,7 +164,7 @@ const Settings = () => {
                   </div>
 
                   <div className="pt-6 border-t border-white/10 flex justify-end">
-                    <button type="submit" className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300 hover:scale-105">
+                    <button type="submit" className="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300 hover:scale-105">
                       Save Changes
                     </button>
                   </div>
@@ -196,13 +205,16 @@ const Settings = () => {
                       value={user.theme}
                       onChange={handleInputChange('theme')}
                       options={[
-                        { value: 'dark', label: 'Dark Mode (Premium)' }, { value: 'light', label: 'Light Mode' }, { value: 'system', label: 'System Match' }
+                        { value: 'theme-plum', label: 'Plum & Graphite (Purple)' },
+                        { value: 'theme-emerald', label: 'Emerald Night (Teal)' },
+                        { value: 'theme-amber', label: 'Midnight Amber (Gold)' },
+                        { value: 'theme-coral', label: 'Coral Dawn (Orange/Pink)' }
                       ]}
                     />
                   </div>
 
                   <div className="pt-6 border-t border-white/10 flex justify-end">
-                    <button type="submit" className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300 hover:scale-105">
+                    <button type="submit" className="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300 hover:scale-105">
                       Update Preferences
                     </button>
                   </div>
@@ -251,13 +263,13 @@ const Settings = () => {
                     <p className="text-gray-400 text-sm">Manage your SubWave Pro plan.</p>
                   </div>
 
-                  <div className="p-6 bg-gradient-to-r from-purple-900/40 to-cyan-900/40 border border-purple-500/30 rounded-2xl flex items-center justify-between">
+                  <div className="p-6 bg-gradient-to-r from-background to-card border border-secondary/30 rounded-2xl flex items-center justify-between">
                     <div>
-                      <span className="px-2 py-1 text-[10px] uppercase font-bold tracking-wider bg-purple-500/20 text-purple-300 rounded-md border border-purple-500/30">Current Plan</span>
+                      <span className="px-2 py-1 text-[10px] uppercase font-bold tracking-wider bg-secondary/20 text-secondary rounded-md border border-secondary/30">Current Plan</span>
                       <h3 className="text-xl font-bold text-white mt-2">SubWave Free</h3>
                       <p className="text-gray-400 text-sm mt-1">Basic features, up to 10 subscriptions.</p>
                     </div>
-                    <button type="button" className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:scale-105 transition-all">
+                    <button type="button" className="px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-xl shadow-lg hover:scale-105 transition-all">
                       Upgrade to Pro
                     </button>
                   </div>

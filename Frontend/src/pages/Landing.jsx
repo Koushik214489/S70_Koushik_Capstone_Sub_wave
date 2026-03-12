@@ -25,8 +25,8 @@ const FeatureCard = ({ icon: Icon, title, description }) => (
         whileHover={{ scale: 1.05, rotateY: 5, rotateX: 5 }}
         className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl hover:bg-white/10 transition-colors shadow-2xl glass-panel group overflow-hidden"
     >
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-        <div className="w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center p-3 shadow-lg shadow-purple-500/30">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="w-12 h-12 mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-secondary flex items-center justify-center p-3 shadow-lg shadow-purple-500/30">
             <Icon className="w-full h-full text-white" />
         </div>
         <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
@@ -39,7 +39,7 @@ const StepCard = ({ number, title, description }) => (
         variants={fadeUpVariant}
         className="flex flex-col items-center text-center max-w-sm relative"
     >
-        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-2xl font-bold text-white mb-6 shadow-[0_0_30px_rgba(6,182,212,0.5)] z-10 hover:scale-110 transition-transform">
+        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-2xl font-bold text-white mb-6 shadow-[0_0_30px_rgba(6,182,212,0.5)] z-10 hover:scale-110 transition-transform">
             {number}
         </div>
         <h3 className="text-2xl font-semibold text-white mb-3">{title}</h3>
@@ -53,7 +53,7 @@ const Landing = () => {
     const opacityHero = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
     return (
-        <div className="min-h-screen bg-[#050511] text-white overflow-hidden font-sans selection:bg-purple-500 selection:text-white">
+        <div className="min-h-screen bg-[#050511] text-white overflow-hidden font-sans selection:bg-secondary selection:text-white">
             {/* Background Orbs & Waves */}
             <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
                 <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-purple-600/20 rounded-full blur-[120px] mix-blend-screen animate-pulse duration-1000" />
@@ -65,7 +65,7 @@ const Landing = () => {
             <nav className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-black/20 border-b border-white/5 py-4">
                 <div className="container mx-auto px-6 flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                             <span className="text-white font-bold text-xl leading-none">S</span>
                         </div>
                         <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
@@ -92,7 +92,7 @@ const Landing = () => {
                     <motion.div style={{ y: yHero, opacity: opacityHero }}>
                         <motion.div
                             initial="hidden" animate="visible" variants={fadeUpVariant}
-                            className="inline-block mb-4 px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 backdrop-blur-sm shadow-[0_0_20px_rgba(168,85,247,0.2)] text-sm font-medium"
+                            className="inline-block mb-4 px-4 py-1.5 rounded-full border border-secondary/30 bg-secondary/10 text-purple-300 backdrop-blur-sm shadow-[0_0_20px_rgba(168,85,247,0.2)] text-sm font-medium"
                         >
                             ✨ The future of subscription management
                         </motion.div>
@@ -103,7 +103,7 @@ const Landing = () => {
                             className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-blue-200"
                         >
                             Manage All Your Subscriptions <br className="hidden md:block" />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                                 In One Place
                             </span>
                         </motion.h1>
@@ -122,12 +122,12 @@ const Landing = () => {
                             transition={{ delay: 0.3, duration: 0.8 }}
                             className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6"
                         >
-                            <Link to="/register" className="group flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-lg hover:scale-105 transition-all shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:shadow-[0_0_40px_rgba(147,51,234,0.6)] w-full sm:w-auto">
+                            <Link to="/register" className="group flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-primary to-blue-600 text-white font-semibold text-lg hover:scale-105 transition-all shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:shadow-[0_0_40px_rgba(147,51,234,0.6)] w-full sm:w-auto">
                                 Start for Free
                                 <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                             </Link>
                             <Link to="/dashboard" className="group flex items-center justify-center px-8 py-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white font-semibold text-lg backdrop-blur-sm transition-all shadow-lg w-full sm:w-auto">
-                                <PlayCircleIcon className="w-6 h-6 mr-2 text-purple-400 group-hover:scale-110 transition-transform" />
+                                <PlayCircleIcon className="w-6 h-6 mr-2 text-secondary group-hover:scale-110 transition-transform" />
                                 View Demo
                             </Link>
                         </motion.div>
@@ -140,7 +140,7 @@ const Landing = () => {
                         className="mt-20 relative mx-auto w-full max-w-5xl perspective-[2000px]"
                         style={{ perspective: "2000px" }}
                     >
-                        <div className="absolute inset-0 bg-gradient-to-b from-purple-500/20 to-transparent blur-3xl -z-10" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-secondary/20 to-transparent blur-3xl -z-10" />
                         <motion.div
                             whileHover={{ rotateX: 0, scale: 1.02 }}
                             style={{ rotateX: '15deg', transformStyle: 'preserve-3d' }}
@@ -202,8 +202,8 @@ const Landing = () => {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="flex-1 w-full"
                         >
-                            <div className="p-8 rounded-3xl bg-gradient-to-br from-cyan-500/10 to-purple-600/10 border border-white/10 shadow-[0_0_50px_rgba(147,51,234,0.15)] relative overflow-hidden group">
-                                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl" />
+                            <div className="p-8 rounded-3xl bg-gradient-to-br from-primary/10 to-secondary/10 border border-white/10 shadow-[0_0_50px_rgba(147,51,234,0.15)] relative overflow-hidden group">
+                                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl" />
                                 <div className="relative z-10 space-y-6">
                                     <div className="inline-block px-4 py-1.5 rounded-full border border-green-500/30 bg-green-500/10 text-green-400 text-sm font-medium">
                                         The Solution
@@ -214,7 +214,7 @@ const Landing = () => {
                                     <p className="text-gray-300 leading-relaxed">
                                         SubWave is the ultimate Digital Subscription Manager. We bring every single subscription into one beautiful, centralized dashboard. We track your renewals, analyze your spending habits, and send you proactive alerts before you're charged—so you only pay for what you actually use.
                                     </p>
-                                    <div className="pt-4 flex items-center space-x-2 text-cyan-400 font-semibold cursor-pointer hover:text-cyan-300 transition-colors">
+                                    <div className="pt-4 flex items-center space-x-2 text-primary font-semibold cursor-pointer hover:text-cyan-300 transition-colors">
                                         <a href="#features" className="hover:text-white transition-colors">See how it works</a>
                                         <ArrowRightIcon className="w-5 h-5 ml-1" />
                                     </div>
@@ -247,7 +247,7 @@ const Landing = () => {
             <section id="features" className="py-32 px-6 relative z-10">
                 <div className="container mx-auto">
                     <div className="text-center max-w-3xl mx-auto mb-20">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Everything you need to <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">take back control</span></h2>
+                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Everything you need to <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary">take back control</span></h2>
                         <p className="text-blue-200/70 text-lg">SubWave provides powerful tools wrapped in an intuitive interface to help you manage expenses effortlessly.</p>
                     </div>
 
@@ -284,7 +284,7 @@ const Landing = () => {
                         className="flex flex-col md:flex-row justify-center items-start gap-12 relative"
                     >
                         {/* Connecting lines */}
-                        <div className="hidden md:block absolute top-8 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-cyan-500/0 via-purple-500/50 to-blue-500/0 -z-10" />
+                        <div className="hidden md:block absolute top-8 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-primary/0 via-purple-500/50 to-blue-500/0 -z-10" />
 
                         <StepCard number="1" title="Connect services" description="Securely link your bank accounts or manually add your services in seconds." />
                         <StepCard number="2" title="Auto-detect" description="Our engine scans and identifies all your recurring payments automatically." />
@@ -303,7 +303,7 @@ const Landing = () => {
                         viewport={{ once: true }}
                         className="flex-1 w-full"
                     >
-                        <div className="relative rounded-2xl p-2 bg-gradient-to-tr from-purple-500/20 to-cyan-500/20 backdrop-blur-sm border border-white/10 shadow-2xl">
+                        <div className="relative rounded-2xl p-2 bg-gradient-to-tr from-secondary/20 to-primary/20 backdrop-blur-sm border border-white/10 shadow-2xl">
                             <div className="absolute inset-0 bg-black/60 rounded-xl" />
                             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1000" alt="Collaboration" className="relative rounded-xl w-full h-auto mix-blend-overlay opacity-80" />
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 bg-black/40 backdrop-blur-xl border border-white/20 rounded-2xl w-3/4 max-w-sm">
@@ -312,7 +312,7 @@ const Landing = () => {
                                     {['Sarah (Owner)', 'Mike (Admin)', 'Kids (Member)'].map((user, i) => (
                                         <div key={user} className="flex justify-between items-center">
                                             <div className="flex items-center space-x-2">
-                                                <div className={`w-8 h-8 rounded-full ${i === 0 ? 'bg-purple-500' : 'bg-blue-500'} flex items-center justify-center text-xs font-bold`}>{user[0]}</div>
+                                                <div className={`w-8 h-8 rounded-full ${i === 0 ? 'bg-secondary' : 'bg-blue-500'} flex items-center justify-center text-xs font-bold`}>{user[0]}</div>
                                                 <span className="text-sm text-gray-200">{user}</span>
                                             </div>
                                             <span className="text-xs text-green-400">Active</span>
@@ -324,16 +324,16 @@ const Landing = () => {
                     </motion.div>
 
                     <div className="flex-1">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Share with your <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">family and friends</span></h2>
+                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Share with your <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">family and friends</span></h2>
                         <p className="text-blue-200/70 text-lg mb-8 leading-relaxed">
                             Managing household subscriptions has never been easier. Invite family members to your SubWave workspace and securely share access to Netflix, Spotify, and more.
                         </p>
                         <ul className="space-y-4">
                             <li className="flex items-center text-gray-300">
-                                <CheckBadgeIcon className="w-6 h-6 mr-3 text-purple-400" /> Granular role assignments (Owner, Admin, Member)
+                                <CheckBadgeIcon className="w-6 h-6 mr-3 text-secondary" /> Granular role assignments (Owner, Admin, Member)
                             </li>
                             <li className="flex items-center text-gray-300">
-                                <CheckBadgeIcon className="w-6 h-6 mr-3 text-cyan-400" /> Detailed activity tracking and audit logs
+                                <CheckBadgeIcon className="w-6 h-6 mr-3 text-primary" /> Detailed activity tracking and audit logs
                             </li>
                             <li className="flex items-center text-gray-300">
                                 <CheckBadgeIcon className="w-6 h-6 mr-3 text-blue-400" /> Prevent accidental cancellations
@@ -346,9 +346,9 @@ const Landing = () => {
             {/* Call to Action */}
             <section className="py-32 px-6 relative z-10 border-t border-white/5 bg-gradient-to-t from-purple-900/20 to-transparent">
                 <div className="container mx-auto">
-                    <div className="max-w-4xl mx-auto rounded-3xl p-1 bg-gradient-to-tr from-cyan-500 to-purple-600 shadow-[0_0_80px_rgba(168,85,247,0.3)]">
+                    <div className="max-w-4xl mx-auto rounded-3xl p-1 bg-gradient-to-tr from-primary to-secondary shadow-[0_0_80px_rgba(168,85,247,0.3)]">
                         <div className="bg-black/90 backdrop-blur-3xl rounded-[23px] py-16 px-8 text-center relative overflow-hidden">
-                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-500/20 via-transparent to-transparent pointer-events-none" />
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-secondary/20 via-transparent to-transparent pointer-events-none" />
 
                             <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 relative z-10">
                                 Take Control of Your Subscriptions Today.
@@ -374,7 +374,7 @@ const Landing = () => {
             <footer className="py-12 px-6 border-t border-white/10 bg-[#020205] relative z-10">
                 <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
                     <div className="flex items-center space-x-2 mb-6 md:mb-0">
-                        <div className="w-6 h-6 rounded-md bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center">
+                        <div className="w-6 h-6 rounded-md bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                             <span className="text-white font-bold text-sm leading-none">S</span>
                         </div>
                         <span className="text-xl font-bold text-gray-200">SubWave</span>

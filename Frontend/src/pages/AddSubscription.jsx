@@ -54,8 +54,8 @@ const AddSubscription = () => {
         transition={{ duration: 0.5 }}
         className="flex items-center space-x-4 mb-4"
       >
-        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-400 to-purple-600 border border-white/10 flex items-center justify-center shadow-lg relative overflow-hidden">
-          <div className="absolute inset-0 bg-purple-500/20 blur-xl"></div>
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary border border-white/10 flex items-center justify-center shadow-lg relative overflow-hidden">
+          <div className="absolute inset-0 bg-secondary/20 blur-xl"></div>
           <PlusCircleIcon className="w-8 h-8 text-white relative z-10" />
         </div>
         <div>
@@ -70,8 +70,8 @@ const AddSubscription = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
         className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-8 relative overflow-hidden shadow-2xl"
       >
-        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-[100px] pointer-events-none" />
 
         <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -79,17 +79,17 @@ const AddSubscription = () => {
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2 flex items-center">
-                  <DocumentTextIcon className="w-4 h-4 mr-2 text-cyan-400" /> Subscription Name
+                  <DocumentTextIcon className="w-4 h-4 mr-2 text-primary" /> Subscription Name
                 </label>
                 <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="e.g. Netflix Premium"
-                    className="relative w-full px-4 py-3 bg-[#0a0a16] border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all"
+                    className="relative w-full px-4 py-3 bg-[#0a0a16] border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-transparent transition-all"
                     required
                   />
                 </div>
@@ -100,8 +100,8 @@ const AddSubscription = () => {
                   <CurrencyDollarIcon className="w-4 h-4 mr-2 text-green-400" /> Amount
                 </label>
                 <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
-                  <div className="relative flex items-center bg-[#0a0a16] border border-white/10 rounded-xl focus-within:ring-2 focus-within:ring-purple-500/50 transition-all overflow-hidden">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                  <div className="relative flex items-center bg-[#0a0a16] border border-white/10 rounded-xl focus-within:ring-2 focus-within:ring-secondary/50 transition-all overflow-hidden">
                     <span className="pl-4 pr-2 text-gray-400 font-medium">₹</span>
                     <input
                       type="number"
@@ -120,15 +120,15 @@ const AddSubscription = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2 flex items-center">
-                  <TagIcon className="w-4 h-4 mr-2 text-pink-400" /> Category
+                  <TagIcon className="w-4 h-4 mr-2 text-accent" /> Category
                 </label>
                 <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
                   <select
                     name="category"
                     value={formData.category}
                     onChange={handleChange}
-                    className="relative w-full px-4 py-3 bg-[#0a0a16] border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all appearance-none"
+                    className="relative w-full px-4 py-3 bg-[#0a0a16] border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-transparent transition-all appearance-none"
                   >
                     {categories.map(category => (
                       <option key={category} value={category}>{category}</option>
@@ -145,16 +145,16 @@ const AddSubscription = () => {
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2 flex items-center">
-                  <CalendarIcon className="w-4 h-4 mr-2 text-purple-400" /> Billing Cycle & Renewal
+                  <CalendarIcon className="w-4 h-4 mr-2 text-secondary" /> Billing Cycle & Renewal
                 </label>
                 <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                   <div className="relative group w-full sm:w-1/2">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
                     <select
                       name="billingCycle"
                       value={formData.billingCycle}
                       onChange={handleChange}
-                      className="relative w-full px-4 py-3 bg-[#0a0a16] border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all appearance-none"
+                      className="relative w-full px-4 py-3 bg-[#0a0a16] border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-transparent transition-all appearance-none"
                     >
                       {billingCycles.map(cycle => (
                         <option key={cycle} value={cycle}>{cycle}</option>
@@ -165,13 +165,13 @@ const AddSubscription = () => {
                     </div>
                   </div>
                   <div className="relative group w-full sm:w-1/2">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
                     <input
                       type="date"
                       name="nextRenewal"
                       value={formData.nextRenewal}
                       onChange={handleChange}
-                      className="relative w-full px-4 py-3 bg-[#0a0a16] border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all [color-scheme:dark]"
+                      className="relative w-full px-4 py-3 bg-[#0a0a16] border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-transparent transition-all [color-scheme:dark]"
                       required
                     />
                   </div>
@@ -183,12 +183,12 @@ const AddSubscription = () => {
                   <CreditCardIcon className="w-4 h-4 mr-2 text-orange-400" /> Payment Method
                 </label>
                 <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
                   <select
                     name="paymentMethod"
                     value={formData.paymentMethod}
                     onChange={handleChange}
-                    className="relative w-full px-4 py-3 bg-[#0a0a16] border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all appearance-none"
+                    className="relative w-full px-4 py-3 bg-[#0a0a16] border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-transparent transition-all appearance-none"
                   >
                     {paymentMethods.map(method => (
                       <option key={method} value={method}>{method}</option>
@@ -205,13 +205,13 @@ const AddSubscription = () => {
                   Additional Notes
                 </label>
                 <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
                   <textarea
                     name="notes"
                     value={formData.notes}
                     onChange={handleChange}
                     placeholder="e.g. Shared with family..."
-                    className="relative w-full px-4 py-3 bg-[#0a0a16] border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all resize-none"
+                    className="relative w-full px-4 py-3 bg-[#0a0a16] border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-transparent transition-all resize-none"
                     rows="2"
                   />
                 </div>
@@ -230,7 +230,7 @@ const AddSubscription = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`px-8 py-3 bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all flex items-center ${isSubmitting ? 'opacity-70 cursor-wait' : 'hover:scale-105 shadow-lg'
+              className={`px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white font-bold rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all flex items-center ${isSubmitting ? 'opacity-70 cursor-wait' : 'hover:scale-105 shadow-lg'
                 }`}
             >
               {isSubmitting ? (

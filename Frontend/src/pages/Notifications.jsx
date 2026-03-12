@@ -15,8 +15,8 @@ const NotificationItem = React.forwardRef(({ notification, onSnooze, onDisable, 
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div className="flex items-start">
         <div className="flex-shrink-0 mt-1">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center border border-white/10 shadow-inner">
-            <BellIcon className="h-6 w-6 text-cyan-400 group-hover:scale-110 transition-transform" />
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center border border-white/10 shadow-inner">
+            <BellIcon className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
           </div>
         </div>
         <div className="ml-4">
@@ -27,8 +27,8 @@ const NotificationItem = React.forwardRef(({ notification, onSnooze, onDisable, 
             {notification.description}
           </p>
           <div className="flex items-center mt-2 text-xs font-medium px-2 py-1 bg-white/5 rounded-md w-fit">
-            <ClockIcon className="w-3.5 h-3.5 mr-1 text-gray-400 group-hover:text-cyan-400 transition-colors" />
-            <span className="text-gray-400 group-hover:text-cyan-400 transition-colors">{notification.time}</span>
+            <ClockIcon className="w-3.5 h-3.5 mr-1 text-gray-400 group-hover:text-primary transition-colors" />
+            <span className="text-gray-400 group-hover:text-primary transition-colors">{notification.time}</span>
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@ const NotificationPreference = ({ label, description, checked, onChange, icon })
           checked={checked}
           onChange={onChange}
         />
-        <div className="w-14 h-7 bg-black/60 border border-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-7 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-gray-400 peer-checked:after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-cyan-500 peer-checked:to-purple-500 peer-checked:border-transparent drop-shadow-2xl"></div>
+        <div className="w-14 h-7 bg-black/60 border border-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-7 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-gray-400 peer-checked:after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-primary peer-checked:to-secondary peer-checked:border-transparent drop-shadow-2xl"></div>
       </label>
     </div>
   </div>
@@ -113,8 +113,8 @@ const Notifications = () => {
         className="flex flex-col md:flex-row md:items-end justify-between"
       >
         <div className="flex items-center space-x-4 mb-4 md:mb-0">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 border border-white/10 flex items-center justify-center shadow-lg relative overflow-hidden">
-            <div className="absolute inset-0 bg-pink-500/20 blur-xl"></div>
+          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-secondary to-accent border border-white/10 flex items-center justify-center shadow-lg relative overflow-hidden">
+            <div className="absolute inset-0 bg-accent/20 blur-xl"></div>
             <BellIcon className="w-8 h-8 text-white relative z-10" />
           </div>
           <div>
@@ -144,13 +144,13 @@ const Notifications = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="lg:col-span-7 bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-8 relative overflow-hidden h-fit"
         >
-          <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-[100px] -z-10" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-[100px] -z-10" />
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold text-white flex items-center">
               Inbox
             </h2>
             {notifications.length > 0 && (
-              <span className="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-bold border border-cyan-500/30">
+              <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold border border-primary/30">
                 {notifications.length} New
               </span>
             )}
@@ -165,7 +165,7 @@ const Notifications = () => {
                   className="flex flex-col items-center justify-center py-16 text-center"
                 >
                   <div className="w-20 h-20 bg-black/40 border border-white/10 rounded-2xl flex items-center justify-center mb-6 shadow-inner relative overflow-hidden">
-                    <div className="absolute inset-0 bg-cyan-500/5 blur-xl"></div>
+                    <div className="absolute inset-0 bg-primary/5 blur-xl"></div>
                     <BellSlashIcon className="w-10 h-10 text-gray-500 relative z-10" />
                   </div>
                   <p className="text-white font-bold text-xl mb-2">You're all caught up!</p>
@@ -193,7 +193,7 @@ const Notifications = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="lg:col-span-5 bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl shadow-2xl p-6 sm:p-8 relative overflow-hidden h-fit"
         >
-          <div className="absolute top-0 left-0 w-80 h-80 bg-purple-500/10 rounded-full blur-[100px] -z-10" />
+          <div className="absolute top-0 left-0 w-80 h-80 bg-secondary/10 rounded-full blur-[100px] -z-10" />
           <h2 className="text-2xl font-bold text-white mb-8 flex items-center">
             Preferences
           </h2>
@@ -203,21 +203,21 @@ const Notifications = () => {
               description="Receive daily summaries to your inbox."
               checked={preferences.emailNotifications}
               onChange={handlePreferenceChange('emailNotifications')}
-              icon={<DocumentTextIcon className="w-6 h-6 text-gray-400 group-hover:text-purple-400 transition-colors" />}
+              icon={<DocumentTextIcon className="w-6 h-6 text-gray-400 group-hover:text-secondary transition-colors" />}
             />
             <NotificationPreference
               label="Push Notifications"
               description="Get instant alerts directly in browser."
               checked={preferences.pushNotifications}
               onChange={handlePreferenceChange('pushNotifications')}
-              icon={<BellIcon className="w-6 h-6 text-gray-400 group-hover:text-cyan-400 transition-colors" />}
+              icon={<BellIcon className="w-6 h-6 text-gray-400 group-hover:text-primary transition-colors" />}
             />
             <NotificationPreference
               label="Payment Due Alerts"
               description="Warn me 3 days before renews."
               checked={preferences.paymentDueAlerts}
               onChange={handlePreferenceChange('paymentDueAlerts')}
-              icon={<ClockIcon className="w-6 h-6 text-gray-400 group-hover:text-pink-400 transition-colors" />}
+              icon={<ClockIcon className="w-6 h-6 text-gray-400 group-hover:text-accent transition-colors" />}
             />
             <NotificationPreference
               label="Budget Limit Alerts"

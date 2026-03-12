@@ -1,4 +1,4 @@
-// src/App.jsx
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from '@mui/material/styles';
@@ -36,6 +36,18 @@ const AppContent = () => {
   const { theme } = useSelector(state => state.ui);
   const currentTheme = getTheme(theme);
 
+  React.useEffect(() => {
+    // Apply theme string (e.g. 'theme-plum') to root html element
+    const root = document.documentElement;
+    root.classList.remove('theme-plum', 'theme-emerald', 'theme-amber', 'theme-coral', 'dark', 'light');
+    if (theme && theme.startsWith('theme-')) {
+      root.classList.add(theme);
+    } else {
+      root.classList.add('theme-plum'); // Fallback default
+    }
+  }, [theme]);
+
+  // Keep MUI ThemeProvider for component consistency
   return (
     <ThemeProvider theme={currentTheme}>
       <CssBaseline />

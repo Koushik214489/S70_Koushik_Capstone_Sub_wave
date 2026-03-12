@@ -15,14 +15,14 @@ const SubscriptionOverview = () => (
     className="mb-8"
   >
     <h2 className="text-xl font-bold text-white mb-6 flex items-center">
-      <ChartBarIcon className="w-6 h-6 mr-2 text-cyan-400" />
+      <ChartBarIcon className="w-6 h-6 mr-2 text-primary" />
       Overview
     </h2>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {[
-        { label: 'Active Services', value: '21', subtext: 'subscriptions', icon: <ChartBarIcon className="w-5 h-5 text-cyan-400" /> },
-        { label: 'Monthly Spend', value: '$247.00', subtext: 'total recurring', icon: <ArrowTrendingUpIcon className="w-5 h-5 text-purple-400" /> },
-        { label: 'Next Renewal', value: '3 days', subtext: 'Netflix - $15.99', icon: <CalendarIcon className="w-5 h-5 text-pink-400" /> }
+        { label: 'Active Services', value: '21', subtext: 'subscriptions', icon: <ChartBarIcon className="w-5 h-5 text-primary" /> },
+        { label: 'Monthly Spend', value: '$247.00', subtext: 'total recurring', icon: <ArrowTrendingUpIcon className="w-5 h-5 text-secondary" /> },
+        { label: 'Next Renewal', value: '3 days', subtext: 'Netflix - $15.99', icon: <CalendarIcon className="w-5 h-5 text-accent" /> }
       ].map((item, index) => (
         <motion.div
           key={item.label}
@@ -32,7 +32,7 @@ const SubscriptionOverview = () => (
           whileHover={{ scale: 1.02, translateY: -5 }}
           className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all shadow-xl group overflow-hidden"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="flex items-center justify-between mb-4 relative z-10">
             <span className="text-sm font-medium text-gray-400">{item.label}</span>
             <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/5 shadow-inner">
@@ -81,14 +81,14 @@ const UpcomingRenewals = () => {
       transition={{ duration: 0.5, delay: 0.2 }}
       className="p-8 rounded-3xl bg-black/40 border border-white/10 backdrop-blur-md shadow-2xl relative overflow-hidden"
     >
-      <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px] -z-10" />
+      <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -z-10" />
 
       <div className="flex items-center justify-between mb-8">
         <h2 className="text-xl font-bold text-white flex items-center">
-          <CalendarIcon className="w-6 h-6 mr-2 text-purple-400" />
+          <CalendarIcon className="w-6 h-6 mr-2 text-secondary" />
           Upcoming Renewals
         </h2>
-        <button className="text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors">View All</button>
+        <button className="text-sm font-medium text-primary hover:text-cyan-300 transition-colors">View All</button>
       </div>
 
       <div className="space-y-4">
@@ -140,7 +140,7 @@ const Dashboard = () => {
           <button className="px-5 py-2.5 bg-white/5 border border-white/10 text-white rounded-xl hover:bg-white/10 font-medium transition-colors backdrop-blur-sm">
             Analytics Report
           </button>
-          <button className="px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-purple-600 text-white rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] font-medium transition-all hover:scale-105 shadow-lg">
+          <button className="px-5 py-2.5 bg-gradient-to-r from-primary to-secondary text-white rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] font-medium transition-all hover:scale-105 shadow-lg">
             + Add New
           </button>
         </div>

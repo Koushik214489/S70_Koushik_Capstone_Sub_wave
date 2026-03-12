@@ -35,7 +35,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="h-screen w-64 bg-gradient-to-r from-blue-400 to-purple-500 fixed left-0 top-0 shadow-2xl">
+    <div className="h-screen w-64 bg-gradient-to-r from-blue-400 to-secondary fixed left-0 top-0 shadow-2xl">
       <div className="p-4">
         <Link to="/dashboard" className="flex items-center space-x-2 mb-8">
           <span className="text-2xl font-bold text-white drop-shadow-lg">SubWave</span>

@@ -3,7 +3,8 @@ const {
   getSubscriptions,
   addSubscription,
   updateSubscription,
-  deleteSubscription
+  deleteSubscription,
+  syncEmails
 } = require('../controllers/subscriptionController');
 const protect = require('../middleware/authMiddleware');
 
@@ -14,5 +15,6 @@ router.get('/', getSubscriptions);
 router.post('/', addSubscription);
 router.put('/:id', updateSubscription);
 router.delete('/:id', deleteSubscription);
+router.post('/sync', syncEmails);
 
 module.exports = router;

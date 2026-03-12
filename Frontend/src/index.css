@@ -5,54 +5,88 @@
 @tailwind utilities;
 
 @layer base {
+  :root, .theme-plum {
+    /* Plum & Graphite (Purple) - Default */
+    --color-primary: #C4B5FD;
+    --color-secondary: #A78BFA;
+    --color-accent: #F472B6;
+    --color-background: #0F172A;
+    --color-card: #1E293B;
+    --color-text: #E5E7EB;
+    --color-border: #374151;
+    --color-success: #22C55E;
+    --color-warning: #FBBF24;
+    --color-error: #FB7185;
+  }
+
+  .theme-emerald {
+    /* Emerald Night (Teal/Green) */
+    --color-primary: #10B981;
+    --color-secondary: #059669;
+    --color-accent: #34D399;
+    --color-background: #0F172A;
+    --color-card: #1E293B;
+    --color-text: #E5E7EB;
+    --color-border: #374151;
+    --color-success: #22C55E;
+    --color-warning: #FBBF24;
+    --color-error: #EF4444;
+  }
+
+  .theme-amber {
+    /* Midnight Amber (Slate/Charcoal & Gold) */
+    --color-primary: #FACC15;
+    --color-secondary: #F97316;
+    --color-accent: #EA580C;
+    --color-background: #111827;
+    --color-card: #1E293B;
+    --color-text: #E5E7EB;
+    --color-border: #374151;
+    --color-success: #22C55E;
+    --color-warning: #FBBF24;
+    --color-error: #EF4444;
+  }
+
+  .theme-coral {
+    /* Coral Dawn (Coral/Amber) */
+    --color-primary: #FB923C;
+    --color-secondary: #F59E0B;
+    --color-accent: #F472B6;
+    --color-background: #111827;
+    --color-card: #1E293B;
+    --color-text: #E5E7EB;
+    --color-border: #374151;
+    --color-success: #22C55E;
+    --color-warning: #FBBF24;
+    --color-error: #EF4444;
+  }
+
   html {
     @apply antialiased;
+    color-scheme: dark;
   }
 
   body {
-    @apply bg-gray-50;
+    @apply bg-background text-text transition-colors duration-500;
   }
 }
 
 @layer components {
-  .btn-primary {
-    @apply px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors duration-200;
-  }
-
-  .btn-secondary {
-    @apply px-4 py-2 bg-white text-primary-500 border border-primary-500 rounded-lg hover:bg-primary-50 transition-colors duration-200;
-  }
-
-  .btn-danger {
-    @apply px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors duration-200;
-  }
-
-  .input-field {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none;
-  }
-
-  .card {
-    @apply bg-white rounded-lg shadow-sm p-6;
-  }
-
-  .nav-link {
-    @apply flex items-center px-4 py-2 text-gray-600 hover:bg-primary-50 hover:text-primary-500 rounded-lg transition-colors duration-200;
-  }
-
-  .nav-link.active {
-    @apply bg-primary-50 text-primary-500;
+  /* Common utilities for glassmorphism */
+  .glass-panel {
+    @apply bg-card border border-border backdrop-blur-xl rounded-2xl shadow-xl;
   }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar for dark theme */
 ::-webkit-scrollbar {
-  @apply w-2;
+  @apply w-2 h-2;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-100;
+  @apply bg-background;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-400 rounded-full hover:bg-gray-500;
+  @apply bg-primary rounded-full hover:bg-secondary transition-colors;
 }

@@ -73,7 +73,7 @@ const Signup = () => {
         className="relative z-10 p-10 rounded-[2rem] w-full max-w-sm bg-black/40 backdrop-blur-2xl border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)]"
       >
         <div className="flex justify-center mb-6">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
             <span className="text-white font-bold text-2xl leading-none">S</span>
           </div>
         </div>
@@ -92,7 +92,7 @@ const Signup = () => {
               id="name"
               type="text"
               placeholder="Full Name"
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-transparent transition-all"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -103,7 +103,7 @@ const Signup = () => {
               id="email"
               type="email"
               placeholder="Email address"
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-transparent transition-all"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -114,7 +114,7 @@ const Signup = () => {
               id="password"
               type={showPassword ? "text" : "password"}
               placeholder="Password"
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent transition-all pr-12"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-transparent transition-all pr-12"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -139,7 +139,7 @@ const Signup = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full py-3 mt-4 bg-gradient-to-r from-cyan-500 to-purple-600 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] text-white font-semibold rounded-xl transition-all duration-300 ${isSubmitting ? 'opacity-70 cursor-wait' : 'hover:scale-[1.02]'
+            className={`w-full py-3 mt-4 bg-gradient-to-r from-primary to-secondary hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] text-white font-semibold rounded-xl transition-all duration-300 ${isSubmitting ? 'opacity-70 cursor-wait' : 'hover:scale-[1.02]'
               }`}
           >
             {isSubmitting ? 'Signing Up...' : 'Sign Up'}
@@ -173,7 +173,7 @@ const Signup = () => {
           Already have an account?{' '}
           <span
             onClick={() => navigate('/login')}
-            className="text-cyan-400 hover:text-cyan-300 cursor-pointer text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 font-bold transition-colors"
+            className="text-primary hover:text-cyan-300 cursor-pointer text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-bold transition-colors"
           >
             Sign In
           </span>

@@ -76,7 +76,7 @@ const Subscriptions = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full min-h-[50vh]">
-        <div className="w-12 h-12 border-4 border-cyan-500/20 border-t-cyan-500 rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-primary/20 border-t-cyan-500 rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -101,8 +101,8 @@ const Subscriptions = () => {
         className="flex flex-col md:flex-row md:items-end justify-between"
       >
         <div className="flex items-center space-x-4 mb-4 md:mb-0">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-400 to-purple-600 border border-white/10 flex items-center justify-center shadow-lg relative overflow-hidden">
-            <div className="absolute inset-0 bg-purple-500/20 blur-xl"></div>
+          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary border border-white/10 flex items-center justify-center shadow-lg relative overflow-hidden">
+            <div className="absolute inset-0 bg-secondary/20 blur-xl"></div>
             <CreditCardIcon className="w-8 h-8 text-white relative z-10" />
           </div>
           <div>
@@ -115,7 +115,7 @@ const Subscriptions = () => {
             to="/add-subscription"
             className="px-5 py-2.5 flex items-center bg-white/10 border border-white/10 text-white rounded-xl hover:bg-white/20 font-medium transition-all hover:scale-105 shadow-lg"
           >
-            <PlusIcon className="w-5 h-5 mr-2 text-cyan-400" /> Add Subscription
+            <PlusIcon className="w-5 h-5 mr-2 text-primary" /> Add Subscription
           </Link>
         </div>
       </motion.div>
@@ -128,17 +128,17 @@ const Subscriptions = () => {
         className="grid grid-cols-1 md:grid-cols-3 gap-6"
       >
         <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl p-6 relative overflow-hidden group">
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
           <h3 className="text-sm font-medium text-gray-400 mb-1 relative z-10">Total Subscriptions</h3>
           <p className="text-3xl font-extrabold text-white relative z-10">{subscriptionsData.length}</p>
         </div>
         <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl p-6 relative overflow-hidden group">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
           <h3 className="text-sm font-medium text-gray-400 mb-1 relative z-10">Monthly Spending</h3>
           <p className="text-3xl font-extrabold text-white relative z-10">₹{totalSpending.toFixed(2)}</p>
         </div>
         <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl p-6 relative overflow-hidden group">
-          <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
           <h3 className="text-sm font-medium text-gray-400 mb-1 relative z-10">Upcoming Renewals</h3>
           <p className="text-3xl font-extrabold text-white relative z-10">{upcomingRenewals.length}</p>
         </div>
@@ -158,7 +158,7 @@ const Subscriptions = () => {
               <select
                 value={filter}
                 onChange={(e) => setFilter(e.target.value)}
-                className="w-full pl-10 pr-8 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white appearance-none focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent transition-all"
+                className="w-full pl-10 pr-8 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white appearance-none focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all"
               >
                 <option value="all">Filters: All Subscriptions</option>
                 <option value="upcoming">Filters: Upcoming Renewals</option>
@@ -174,7 +174,7 @@ const Subscriptions = () => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="w-full min-w-[140px] px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white appearance-none focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-transparent transition-all"
+              className="w-full min-w-[140px] px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white appearance-none focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all"
             >
               <option value="name">Name (A-Z)</option>
               <option value="amount">Amount (High to Low)</option>
@@ -206,7 +206,7 @@ const Subscriptions = () => {
             {filter === 'all' && (
               <Link
                 to="/add-subscription"
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-medium rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all hover:scale-105"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-medium rounded-xl hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all hover:scale-105"
               >
                 Add Your First Subscription
               </Link>
